@@ -71,11 +71,12 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ### Built With
 
-A server is created using Express that handles the calculations for solving the Cubic Spline Interpolation problem. The server returns relevant variable used within the formula, along with the solution.
+A server is created using Express that handles the calculations for solving the Cubic Spline Interpolation problem. The server returns relevant variable used within the formula, along with the solution. It also uses the Desmos API to graph and visualize the results.
 * [HTML]
 * [CSS]
 * [JavaScript]
 * [Express](https://expressjs.com)
+* [Desmos API](https://www.desmos.com/api)
 
 
 <!-- GETTING STARTED -->
