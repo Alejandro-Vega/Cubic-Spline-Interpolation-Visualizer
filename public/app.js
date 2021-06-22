@@ -608,7 +608,6 @@ window.MathJax = {
 
     function toFract(value, maxDenom) {
         value = parseFloat(value);
-        console.log( "Looking up: " + value );
         let best = { numerator: 1, denominator: 1, error: Math.abs(value - 1) }
         if ( !maxDenom ) maxDenom = 10000;
         for ( let denominator = 1; best.error > 0 && denominator <= maxDenom; denominator++ ) {

@@ -91,10 +91,7 @@ function calculateCubic(xPoints, yPoints) {
         let a1 = (hVals[i] + hVals[i+1]) / 3;
         let a2 = hVals[i+1] / 6;
         let y = ((yPoints[i+2] - yPoints[i+1]) / hVals[i+1]) - ((yPoints[i+1] - yPoints[i]) / hVals[i]);
-        //console.log(a0);
-        //console.log(a1);
-        //console.log(a2);
-        //console.log(y);
+
         if(i == 0) {
             row.push(0);
         } else {
@@ -120,11 +117,8 @@ function calculateCubic(xPoints, yPoints) {
         aVals.push(row[row.length-1]);
     }
     aVals.push(0);
-    console.log(aVals);
     let bVals = getBVals(aVals, hVals, yPoints);
     let cVals = getCVals(aVals, hVals, yPoints);
-    console.log(bVals);
-    console.log(cVals);
     let equations = getEQs(aVals, bVals, cVals, hVals, xPoints);
     let simplifiedEQ = [];
     for(const eq of equations) {
@@ -173,7 +167,6 @@ function getEQs(aVals, bVals, cVals, hVals, xPoints) {
         + bVals[i] + "*(" + xPoints[i+1] + "-x)+" 
         + cVals[i] + "*(x-" + xPoints[i] + ")";
         equations.push(eq);
-        console.log(eq);
         //simplify(parse(eq)).toString()
     }
     return equations;
