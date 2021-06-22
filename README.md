@@ -129,9 +129,6 @@ The program is not currently limited to the number of possible points it can han
   <img src="public/images/example-step1.png" width="60%" alt="Example step 1">
 </p>
 <p>
-  <img src="public/images/example-step2.png" width="60%" alt="Example step 2">
-</p>
-<p>
   <img src="public/images/example-step3.png" width="60%" alt="Example step 3">
 </p>
 <p>
