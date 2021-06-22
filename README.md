@@ -15,7 +15,7 @@ This program uses the cubic spline formula to solve for interpolating polynomial
   <p align="center">
     An awesome interpolator alternative!
     <br />
-    <a href="#">View Demo</a>
+    <a href="https://cubic-spline-interpolation.herokuapp.com/index.html">View Demo</a>
     ·
     <a href="https://github.com/Alejandro-Vega/Cubic-Spline-Interpolation-Visualizer/issues">Report Bug</a>
     ·
