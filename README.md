@@ -15,11 +15,11 @@ This program uses the cubic spline formula to solve for interpolating polynomial
   <p align="center">
     An awesome interpolator alternative!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="#">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/Alejandro-Vega/Cubic-Spline-Interpolation-Visualizer/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Alejandro-Vega/Cubic-Spline-Interpolation-Visualizer/issues">Request Feature</a>
   </p>
 </p>
 
@@ -50,10 +50,6 @@ This program uses the cubic spline formula to solve for interpolating polynomial
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
-
-<p>
-  <img src="https://prnt.sc/1699hg7" width="60%" alt="Example graph">
-</p>
 
   
 <!-- ABOUT THE PROJECT -->
