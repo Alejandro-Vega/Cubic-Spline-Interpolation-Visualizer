@@ -45,10 +45,8 @@ window.MathJax = {
             window.MathJax = {
                 startup: {
                 ready: () => {
-                    console.log("22222");
                     MathJax.startup.defaultReady();
                     MathJax.startup.promise.then(() => {
-                        console.log("MathJax ready");
                         resolve();
                     });
                 }
@@ -61,12 +59,10 @@ window.MathJax = {
         let slider = id("slider");
         
         slider.addEventListener("change", function() {
-            console.log("slider changed")
         });
     }
 
     function updateOutput(eq) {
-        console.log(eq);
     }
 
     function calculateListener(calculator) {
@@ -176,7 +172,6 @@ window.MathJax = {
         let elt = document.getElementById('calculator');
         let calculator = Desmos.GraphingCalculator(elt);
         calculator.setBlank();
-        console.log(calculator);
         calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
         delCoordListener(1);
         return calculator
@@ -192,7 +187,6 @@ window.MathJax = {
                 return "*10^{" + n + "}";
             });
             let latexVal = equations[i] + "\\left\\{" + domains[i]["min"] + "\\le x\\le " + domains[i]["max"] + "\\right\\}";
-            console.log(String.raw`${latexVal}`);
             calculator.setExpression({ 
                 id: 'graph' + (i+1),
                 type: "expression", 
@@ -249,14 +243,11 @@ window.MathJax = {
                 yVals.push(yInput.value);
                 
             }
-            console.log(xVals);
-            console.log(yVals);
             let remainingCoords = qsa("#input-fields > section:nth-child(n+" + (num) + ")");
             for(const coord of remainingCoords) {
                 coord.remove();
             }
             for(let i = 0; i < xVals.length; i++) {
-                console.log(num+i);
                 addPoint(num+i);
                 delCoordListener(num+i);
                 let xInput = id("x" + (num+i) + "-input");
@@ -415,9 +406,7 @@ window.MathJax = {
             let yLeft = toLatexFractionSplit(yi2 + "-" + yi1, hi1);
             let yRight = toLatexFractionSplit(yi1 + "-" + yi0, hi0); 
             let end = toLatexFraction(toFract(((yVals[i+2] - yVals[i+1]) / hVals[i+1]) - ((yVals[i+1] - yVals[i]) / hVals[i])));
-            console.log(((yVals[i+2] - yVals[i+1]) / hVals[i+1]) - ((yVals[i+1] - yVals[i]) / hVals[i]));   
             latex += start + a0Coeff + "+" + a1Coeff + "+" + a2Coeff + " = (" + yLeft + ")-(" + yRight + ") = " + end;
-            console.log(latex);
             addStep(latex, iterSteps);
         }
     }
@@ -528,7 +517,6 @@ window.MathJax = {
             + a1 + "*" + toLatexFractionSplit("(x - " + x0 + ")^{3}", "6*(" + h + ")") + " + "
             + b + "*(" + x1 + " - x) + " 
             + c + "*(x - " + x0 + ")"; 
-            console.log(latex);
             addStep(latex, finalSteps);
         }
     }
@@ -607,7 +595,6 @@ window.MathJax = {
 
     function toLatexFraction(frac) {
         let nums = frac.toString().split("/");
-        console.log(frac);
         return toLatexFractionSplit(parseFloat(nums[0]), parseFloat(nums[1]));
     }
 
@@ -616,7 +603,6 @@ window.MathJax = {
         if(denominator == 1) {
             return numerator.toString();
         }
-        console.log("\\frac{" + numerator + "}{" + denominator + "}");
         return "\\frac{" + numerator + "}{" + denominator + "}";
     }
 
@@ -632,16 +618,10 @@ window.MathJax = {
             best.numerator = numerator;
             best.denominator = denominator;
             best.error = error;
-            console.log( "Intermediate result: "
-                            + best.numerator + "/" + best.denominator
-                            + " (" + ( best.numerator/best.denominator)
-                            + " error " + best.error + " )" );
         }
-        console.log( "Final result: " + JSON.stringify( best ) );
         if(best.denominator > 1000 || best.numerator > 1000) {
             return value + "/1";
         }
-        console.log(best.numerator.toString() + "/" + best.denominator.toString());
         return best.numerator.toString() + "/" + best.denominator.toString();
       }
         
@@ -649,7 +629,6 @@ window.MathJax = {
     function showWorkListener() {
         let btn = id("see-work");
         btn.addEventListener("click", function() {
-            console.log("clicked");
             scrollTo(id("steps-wrapper"));
         });
     }
