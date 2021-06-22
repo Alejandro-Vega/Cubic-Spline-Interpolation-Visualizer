@@ -7,7 +7,7 @@ This program uses the cubic spline formula to solve for interpolating polynomial
 <br />
 <p align="center">
   <a href="public/images/logo-80.png">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="public/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Cubic Spline Interpolation</h3>
