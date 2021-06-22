@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Interpolation</title>
+
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap" rel="stylesheet">
+        <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+        <script src="app.js"></script>
+        
+
+    </head>
+
+    <body>
+        <!-- 
+        <p>Solve <span id="problem">f(x) = ax^2 + bx + c + = 0</span>.</p>
+        <div id="input-wrapper">
+            <p id="equation-p"><span id="equation">f(x)=</span></p>
+        </div>
+        -->
+        <header>
+            <nav>
+
+            </nav>
+        </header>
+        <main>
+            <div id="item-wrapper">
+                <h2>Cubic Spline Interpolation</h2>
+                <div id="layout-wrapper">
+                    <span id="calc-sidenote">*Raw equations plotted</span>
+                    <div id="calculator"></div>
+                    <div id="error-message" class="hidden">
+                        <h3>ERROR:</h3>
+                        <p id="error"></p>
+                    </div>
+                    <div id="form-wrapper">
+                        <form class="input-form" id="input-fields">
+                            <section class="coord">
+                                <section id="x1">
+                                    <label for="x1-input">x1: </label>
+                                    <input id="x1-input" class="coord-input" name="x1" type="text" pattern="[-]?[0-9]+[,.]?[0-9]*([\/][0-9]+[,.]?[0-9]*)*" title="Required x value* format: 'Integer, decimal, or fraction'" required />
+                                  </section>
+                                  <section id="y1">
+                                    <label for="y1-input">y1: </label>
+                                    <input id="y1-input" class="coord-input" name="y1" type="text" pattern="[-]?[0-9]+[,.]?[0-9]*([\/][0-9]+[,.]?[0-9]*)*" title="Required y value* format: 'Integer, decimal, or fraction'" required />
+                                    <img class="del-coord" src="images/x-icon-compressed.png" alt="x icon">
+                                </section>
+                                  
+                            </section>
+    
+                            <a id="addCoord">
+                                <img src="images/circle-plus.png" style="margin-right: 0.5rem;"/>
+                                Add Point
+                            </a>
+                            
+                            <div id="buttons">
+                                <button id="clear-btn" class="btn" type="reset" value="Clear">Clear</button>
+                                <button id="submit-btn" class="btn" type="submit" value="Submit">Calculate</button>
+                                <button id="rand-btn" class="btn" value="rand">Generate</button>
+                            </div>
+                        </form>
+
+                        <div id="decimal-slider">
+                            <h2>Number of decimals:</h2>
+                            <div class="range">
+                                <input id="slider" type="range" min="1" max="9" steps="1" value="4">
+                                <ul class="range-labels">
+                                    <li class="active selected">1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>8</li>
+                                    <li>9</li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>               
+                
+            </div>
+            <button id="see-work">See Work</button>
+            <div id="data-wrapper">
+                <h2>EQUATIONS</h2>
+                
+                <div id="data">
+                    <div id="equations">
+                        <div class="equation-wrapper">
+                            <p id="equation">
+                                $$
+                                f(x) = \begin{cases}
+                                ax^2 + bx + c = 0 & \text{if } 0≤x≤1\\ 
+                                ax^2 + bx + c = 0 & \text{if } 0≤x≤1\\
+                                ax^2 + bx + c = 0 & \text{if } 0≤x≤1\\ 
+                                \end{cases}
+                                $$
+                            </p>
+                        </div>
+   
+                    </div> 
+                </div>
+            </div> 
+            <div id="steps-wrapper">
+                <h2>STEPS</h2>
+                <div id="steps">
+                    <div class="step">
+                        <h3>Step 1</h3>
+                        <div class="steps" id="setup-steps">
+                            <p class="eq" id="x-matrix">
+                                $$
+                                x =
+                                \left[
+                                \begin{array}-
+                                1 & \frac{2}{3} & 1 & 2
+                                \end{array}
+                                \right]
+                                $$
+                            </p>
+                            <p class="eq" id="y-matrix">
+                                $$
+                                y =
+                                \left[
+                                \begin{array}-
+                                4 & -4 & -\frac{7}{2} & -\frac{1}{2}
+                                \end{array}
+                                \right]
+                                $$
+                            </p>
+                            <br>
+                            <p class="eq formula">
+                                $$
+                                h_i=x_{i+1}-x_i\quad\text{for all }x_i\in{x}
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                h_{1} = \frac{2}{3}
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                h_{2} = \frac{1}{3}
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                h_{3} = 1
+                                $$
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="step">
+                        <h3>Step 2</h3>
+                        <div class="steps" id="iter-steps">
+                            <p class="eq formula">
+                                $$
+                                \frac{h_i}{6}a_{i-1}
+                                +\frac{h_i+h_{i+1}}{3}a_i
+                                +\frac{h_{i+1}}{6}a_{i+1}
+                                =\frac{y_{i+2}-y_{i+1}}{h_{i+1}}
+                                -\frac{y_{i+1}-y_i}{h_i}
+                                \quad(i=1,...,n-2)
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                \text{i = 1: } 
+                                \quad\frac{1}{9}a_0+\frac{1}{3}a_1+\frac{1}{18}a_2
+                                =\frac{-\frac{7}{2}-\left(-4\right)}{\frac{1}{3}}-\frac{-4-4}{\frac{2}{3}}
+                                =\frac{27}{2}
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                \text{i = 2: } 
+                                \quad\frac{1}{18}a_1+\frac{4}{9}a_2+\frac{1}{6}a_3
+                                =\frac{-\frac{1}{2}-\left(-\frac{7}{2}\right)}{1}-\frac{-\frac{7}{2}-\left(-4\right)}{\frac{1}{3}}
+                                =\frac{3}{2}
+                                $$
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="step">
+                        <h3>Step 3</h3>
+                        <div class="steps" id="matrix-steps">
+                            <p class="eq formula">
+                                $$
+                                \text{Let }
+                                a_0=a_{n}=0 
+                                $$
+                            </p>
+                            <p>Set up matrix:</p>
+                            <p class="eq" id="matrix-before">
+                                $$
+                                \left[
+                                \begin{array}{cccc|c}
+                                0 & \frac{1}{3} & \frac{1}{18} & 0 & \frac{27}{2} \\
+                                0 & \frac{1}{18} & \frac{4}{9} & 0 & \frac{3}{2} \\
+                                \end{array}
+                                \right]
+                                $$
+                            </p>
+                            <br>
+                            <p>Reduced Row Echelon Form: </p>
+                            <p class="eq" id="matrix-after">
+                                $$
+                                \left[
+                                \begin{array}{cccc|c}
+                                0 & 1 & 0 & 0 & 40.7872 \\ 
+                                0 & 0 & 1 & 0 & 1.7234 \\
+                                \end{array}
+                                \right]
+                                $$
+                            </p>
+                            <br>
+                            <p class="eq" id="solved-a">
+                                $$
+                                a_0 = 0
+                                \quad a_1 = 40.7872
+                                \quad a_2 = -1.7234
+                                \quad a_3 = 0
+                                $$
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="step">
+                        <h3>Step 4</h3>
+                        <div class="steps" id="b-steps">
+                            <p class="eq formula">
+                                $$
+                                b_i=\frac{y_i}{h_i}-\frac{a_{i-1}h_i}{6}
+                                $$
+                            </p>
+                            <br>
+                            <p class="eq">
+                                $$
+                                b_1=\frac{4}{\frac{2}{3}}-\frac{0}{6}=6
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                b_2=\frac{-4}{\frac{1}{3}}-\frac{40.7872\cdot \frac{1}{3}}{6}=-14.2660
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                b_3=-\frac{7}{2}-\frac{-1.7234\cdot 1}{6}=-3.2128
+                                $$
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="step">
+                        <h3>Step 5</h3>
+                        <div class="steps" id="c-steps">
+                            <p class="eq formula">
+                                $$
+                                c_i=\frac{y_{i+1}}{h_i}-\frac{a_ih_i}{6}
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                c_1=\frac{-4}{\frac{2}{3}}-\frac{40.7872\cdot \frac{2}{3}}{6}=-10.5319
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                c_2=\frac{-\frac{7}{2}}{\frac{1}{3}}-\frac{-1.7234\cdot \frac{1}{3}}{6}=-10.4043
+                                $$
+                            </p>
+                            <p class="eq">
+                                $$
+                                c_3=-\frac{1}{2}-\frac{0}{6}=-\frac{1}{2}
+                                $$
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="step" id="final-step-wrapper">
+                        <h3>Piece Together</h3>
+                        <div class="steps" id="final-steps">
+                            <p class="eq formula">
+                                $$
+                                a_0\frac{\left(x_2-x\right)^3}{6h_1}+a_1\frac{\left(x-x_1\right)^3}{6h_1}+b_1\left(x_2-x\right)+c_1\left(x-x_1\right)
+                                $$
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </body>
+</html>

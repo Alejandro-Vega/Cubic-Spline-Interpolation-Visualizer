@@ -1,0 +1,380 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+body, #form-wrapper {
+    overflow-x: hidden;
+}
+
+#input-wrapper, .coord, .coord section, #addCoord, #decimal-slider, .step {
+    justify-content: center;
+}
+
+#input-wrapper, #item-wrapper, #error-message, #data-wrapper h2, #steps-wrapper {
+    text-align: center;
+}
+
+#equation {
+    min-width: 20rem;
+    min-height: 2.375rem;
+    padding: 8px 40px 8px 12px;
+    cursor: text;
+    border: 1px solid gray;
+    border-color: #ccc;
+    border-radius: 5px;
+}
+
+#equation, #addCoord {
+    line-height: 1;
+}
+
+#equation, #data {
+    background-color: white;
+}
+
+#equation, #equations, .step {
+    text-align: left;
+}
+
+.emptyEq {
+    color: gray;
+    font-style: italic;
+}
+
+header {
+    height: 4rem;
+}
+
+header, nav {
+    width: 100vw;
+}
+
+nav {
+    background-color: #222222;
+    height: 100%;
+}
+
+#item-wrapper {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+#item-wrapper, form, #buttons, #equations, .range {
+    justify-content: space-evenly;
+}
+
+#item-wrapper, form, #form-wrapper, #equations, .range, .step  {
+    flex-direction: column;
+}
+
+#item-wrapper, form, #form-wrapper, .coord, .coord section, #buttons, #layout-wrapper, #equations, .eq, .range, #decimal-slider > div > ul, .step  {
+    display: flex;
+}
+
+form {
+    align-items: center;
+    border: 1px solid black;
+    order: -1;
+    width: 100%;
+}
+
+#form-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-height: 40rem;
+    max-width: 70%;
+    min-width: 450px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 40rem;
+    overflow-y: scroll;
+}
+
+.coord {
+    flex-direction: row;
+    width: 25rem;
+}
+
+.coord section {
+    flex-direction: row;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.coord section, .coord-input, .btn, #decimal-slider h2, #equation {
+    font-size: 20px;
+}
+
+.coord-input {
+    width: 4rem;
+    height: 2rem;
+    padding-left: 0.3rem;
+}
+
+.btn {
+    padding: 1rem;
+    color: white;
+    background-color: #60935D;
+    border: none;
+    border-radius: 10px;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    max-width: 120px;
+    width: 120px;
+}
+
+#submit-btn {
+    background-color: #60935D;
+
+}
+
+#clear-btn {
+    background-color: #325030;
+}
+
+#rand-btn {
+    background-color: #8d1a1a;
+}
+
+#buttons {
+    width: 100%;
+    flex-direction: row;
+}
+
+button {
+    cursor: pointer;
+}
+
+#addCoord {
+    width: 20rem;
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center; 
+    flex-direction: row;
+    cursor: pointer;
+}
+
+#addCoord, #equation {
+    vertical-align: text-top;
+}
+
+#addCoord:hover {
+    font-weight: 500;
+}
+
+.del-coord {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5rem;
+    align-self: center;
+    opacity: 0.35;
+}
+
+.del-coord:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#layout-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 95%;
+    margin-top: 3rem;
+    align-self: center;
+}
+
+#calculator {
+    width: 75%;
+    min-height: 40rem;
+    margin: 0 auto;
+}
+
+#calc-sidenote {
+    position: absolute;
+    top: 150px;
+    left: 250px;
+    color: red;
+}
+
+label {
+    margin-right: 0.2rem;
+    width: 50px;
+}
+
+#error-message {
+    padding: 1rem;
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+#data-wrapper {
+    width: 100%;
+    min-height: 20rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    align-self: center;
+}
+
+#data-wrapper h2 {
+    font-size: 30px;
+}
+
+#data {
+    min-height: 15rem;
+    padding-top: 0.2rem;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+#equations {
+    margin-top: 1rem;
+}
+
+#equation {
+    font-size: max(1vw, 10px);
+    letter-spacing: 0.1em;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.eq {
+    font-size: max(1vw, 10px);
+    letter-spacing: 0.1em;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#y-matrix {
+    margin-bottom: 1rem;
+}
+
+.eq-domain {
+    padding-left: 2rem;
+}
+
+#decimal-slider {
+    margin-top: 1rem;
+    align-self: center;
+    width: 100%;
+    padding-bottom: 2rem;
+    border: 1px solid black;
+    align-items: center;
+}
+
+#decimal-slider h2 {
+    padding-top: 1rem;
+}
+
+.range {
+    padding: 1rem;
+}
+
+#decimal-slider > div > ul {
+    width: 100%;
+    margin: 0 auto;
+    text-decoration: none;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+#steps-wrapper {
+    width: 100%;
+}
+
+#steps {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+.step {
+    padding: 1rem;
+}
+
+.step h3 {
+    padding-left: 3rem;
+    margin-top: 1rem;
+}
+
+.steps {
+    display: inline-block;
+    min-width: 10rem;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+#see-work {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 8rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: rgba(96, 147, 93, 0.3) 0px 7px 29px 0px;
+    scroll-behavior: smooth;
+    z-index: 1;
+}
+
+.formula {
+    margin-bottom: 1rem;
+}
+
+#final-step-wrapper {
+    margin-bottom: 5rem;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1366px) {
+    form {
+        margin: 0 auto;
+    }
+    #layout-wrapper {
+        flex-direction: column;
+    }
+    #calculator {
+        order: 2;
+        width: 90%;
+        height: 40rem;
+        margin-top: 3rem;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    form {
+        margin: 0 auto;
+    }
+
+    #layout-wrapper {
+        flex-direction: column;
+    }
+    #calculator {
+        order: 2;
+        min-width: 600px;
+        min-height: 400px;
+        width: 600px;
+        height: 400px;
+    }
+
+}
