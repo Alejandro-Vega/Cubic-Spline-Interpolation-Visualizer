@@ -6,7 +6,7 @@ This program uses the cubic spline formula to solve for interpolating polynomial
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="public/images/logo-80.png">
+  <a href="https://cubic-spline-interpolation.herokuapp.com/index.html">
     <img src="public/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -59,7 +59,7 @@ This program uses the cubic spline formula to solve for interpolating polynomial
 
 There are currently not many visualizer calculators for the numerical analysis field in math. The topics can be difficult to grasp. 
 
-Here's why I felt it needed to created:
+Here's why I felt it needed to be created:
 * Not many calculators online to solve such a problem
 * No calculator online shows the steps towards solving the problem
 * Helpful for students and math enthusiasts to see what the result for such a problem will look like
